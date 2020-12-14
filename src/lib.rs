@@ -40,10 +40,10 @@ fn update_checkpoint(new_name: &str) -> Option<String> {
         // No ouput first checkpoint to minimize effects on duration measurements
         None => None,
         Some(checkpoint) => Some(format!(
-            "Hitting '{}' after {:?} since hitting '{}'\n",
-            new_name,
+            "{:?} from '{}' to '{}'\n",
             checkpoint.instant.elapsed(),
-            checkpoint.name
+            new_name,
+            checkpoint.name,
         )),
     };
 
