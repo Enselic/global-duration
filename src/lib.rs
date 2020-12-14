@@ -42,8 +42,8 @@ fn update_checkpoint(new_name: &str) -> Option<String> {
         Some(checkpoint) => Some(format!(
             "{:?} from '{}' to '{}'\n",
             checkpoint.instant.elapsed(),
-            new_name,
             checkpoint.name,
+            new_name,
         )),
     };
 
