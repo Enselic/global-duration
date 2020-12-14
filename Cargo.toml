@@ -1,8 +1,12 @@
 [package]
-name = "global-duration"
-version = "0.1.0"
 authors = ["Martin Nordholts <enselic@gmail.com>"]
+description = "Enables simple measurement of durations between arbitrary points in Rust code"
 edition = "2018"
+license = "MIT"
+name = "global-duration"
+readme = "README.md"
+repository = "https://github.com/Enselic/global-duration"
+version = "0.1.0"
 
 [dependencies]
 lazy_static = "1.4.0"
