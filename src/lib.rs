@@ -49,7 +49,7 @@ fn update_checkpoint(new_name: &str) -> Option<String> {
 
     *last_checkpoint = Some(Checkpoint::new(new_name));
 
-    output
+    return output;
 }
 
 fn print(output: &str) {
