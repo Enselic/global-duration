@@ -21,7 +21,7 @@ lazy_static! {
     static ref TO: Mutex<To> = Mutex::from(To::Stderr);
 }
 
-pub fn to_file(path: &str) {
+pub fn to_file_renamed(path: &str) {
     let mut to = TO.lock().unwrap();
     *to = To::File(String::from(path));
 }
@@ -83,7 +83,7 @@ mod tests {
     #[test]
     fn basic_to_file() {
         // Do the test
-        to_file("/tmp/com.setofskills.global_duration.test-output.txt");
+        to_file_renamed("/tmp/com.setofskills.global_duration.test-output.txt");
         checkpoint("checkpoint 1");
         sleep(Duration::from_millis(1000));
         checkpoint("checkpoint 2");
