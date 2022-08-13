@@ -8,7 +8,6 @@ jobs:
   deny-public-api-changes:
     runs-on: ubuntu-latest
     steps:
-    - run: pwd
-    - run: ls -la
-    - run: echo cargo install cargo-public-api
-    - run: echo cargo public-api --diff-git-checkouts ${GITHUB_BASE_REF} ${GITHUB_HEAD_REF} --deny=all
+      - uses: actions/checkout@v2
+      - run: cargo install cargo-public-api
+      - run: cargo public-api --diff-git-checkouts ${GITHUB_BASE_REF} ${GITHUB_HEAD_REF} --deny=all
