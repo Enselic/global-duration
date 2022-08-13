@@ -9,5 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+        with:
+          fetch-depth: 500
       - run: cargo install cargo-public-api
       - run: cargo public-api --diff-git-checkouts ${GITHUB_BASE_REF} ${GITHUB_HEAD_REF} --deny=all
