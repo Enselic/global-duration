@@ -1,0 +1,12 @@
+name: Deny public API changes
+
+on:
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  deny-public-api-changes:
+    runs-on: ubuntu-latest
+    steps:
+    - run: cargo install cargo-public-api
+    - run: cargo public-api --diff-git-checkout ${{ env.GITHUB_BASE_REF}} ${{ env.GITHUB_HEAD_REF }} --deny=all
