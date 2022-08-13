@@ -8,8 +8,17 @@ jobs:
   deny-public-api-changes:
     runs-on: ubuntu-latest
     steps:
+      # full git history needed
       - uses: actions/checkout@v2
         with:
           fetch-depth: 0
+
+      # install nightly (stable is already available)
+      - uses: actions-rs/toolchain@v1
+        with:
+          toolchain: nightly
+          profile: minimal
+
+      # install and run cargo public-api and deny any API diff
       - run: cargo install cargo-public-api
       - run: cargo public-api --diff-git-checkouts ${GITHUB_BASE_REF} ${GITHUB_HEAD_REF} --deny=all
