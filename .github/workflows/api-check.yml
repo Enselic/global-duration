@@ -10,6 +10,6 @@ jobs:
     steps:
       - uses: actions/checkout@v2
         with:
-          fetch-depth: 500
+          fetch-depth: 0
       - run: cargo install cargo-public-api
       - run: cargo public-api --diff-git-checkouts ${GITHUB_BASE_REF} ${GITHUB_HEAD_REF} --deny=all
